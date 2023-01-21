@@ -1,0 +1,23 @@
+[26-Oct-2019 16:16:52 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[26-Oct-2019 16:43:30 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[26-Oct-2019 18:08:07 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[29-Nov-2019 22:09:19 Asia/Tehran] PHP Warning:  file_get_contents(encrypted.php): failed to open stream: No such file or directory in /home/parsnetw/public_html/user-csta/include/decod.php on line 6
+[29-Nov-2019 22:31:35 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[29-Nov-2019 23:06:01 Asia/Tehran] PHP Warning:  gzinflate(): data error in /home/parsnetw/public_html/user-csta/include/decod.php on line 3
+[29-Nov-2019 23:06:02 Asia/Tehran] PHP Warning:  gzinflate(): data error in /home/parsnetw/public_html/user-csta/include/decod.php on line 3
+[29-Nov-2019 23:09:42 Asia/Tehran] PHP Warning:  gzuncompress(): data error in /home/parsnetw/public_html/user-csta/include/decod.php on line 4
+[29-Nov-2019 23:09:42 Asia/Tehran] PHP Warning:  gzuncompress(): data error in /home/parsnetw/public_html/user-csta/include/decod.php on line 4
+[13-Dec-2019 20:30:17 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[20-Dec-2019 22:20:37 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[20-Dec-2019 22:26:09 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[31-Jan-2020 23:19:18 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[31-Jan-2020 23:21:19 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[31-Jan-2020 23:24:31 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[27-Mar-2020 16:09:52 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[27-Mar-2020 16:13:24 Asia/Tehran] PHP Deprecated:  Methods with the same name as their class will not be constructors in a future version of PHP; CaptchaSecurityImages has a deprecated constructor in /home/parsnetw/public_html/user-csta/include/captcha.php on line 26
+[19-Jun-2020 02:13:36 Asia/Tehran] PHP Fatal error:  Uncaught Error: Call to undefined function prnt() in /home1/parsnetw/public_html/my/include/class.pm.php:9
+Stack trace:
+#0 {main}
+  thrown in /home1/parsnetw/public_html/my/include/class.pm.php on line 9
+[21-Jul-2020 13:58:03 Asia/Tehran] PHP Parse error:  Invalid numeric literal in /home1/parsnetw/public_html/my.espadac.ir/include/ghestcheker.php on line 3
+[21-Jul-2020 14:16:41 Asia/Tehran] PHP Parse error:  syntax error, unexpected '3' (T_LNUMBER), expecting ')' in /home1/parsnetw/public_html/my.espadac.ir/include/ghestcheker.php on line 13
