@@ -94,7 +94,9 @@ function Gettypelist($query) { global $table_prefix;
  $query = $this->link->query("SELECT * FROM `nim_product` $query");
  $counts = $query->rowCount(); $result = $query->fetchAll();
  return $result; }
- 
+
+
+
  function Getcitybyid($ccid) { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `city` WHERE `id`=? ");
 
  $values = array($ccid);
@@ -146,10 +148,15 @@ function Deletecustomerapp($id)
  
  function GetmaWalletList($submitby)
  { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_users` WHERE `uusername`=?"); $values = array($submitby);
- $query->execute($values); $result = $query->fetchAll(); return $result; } 
- 
- 
-  function GEtmissionsapi($promoter)
+ $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+    function Getproducttype($submitby)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_product_type` WHERE `show_on`=? AND `active`=1"); $values = array($submitby);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+    function GEtmissionsapi($promoter)
  { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_missions` WHERE status NOT LIKE '2' AND promoter LIKE '00' OR status NOT LIKE '2'  AND promoter=?"); $values = array($promoter);
  $query->execute($values); $result = $query->fetchAll(); return $result; } 
 

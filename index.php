@@ -2,6 +2,7 @@
 include('main.php');
 include('header.php');
 
+$fee = new ManageFees();
 
 echo'
 
@@ -149,53 +150,27 @@ echo'
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-2 col-sm-4 col-md-4">
-                        <div class="single-categories-box">
-                            <img src="assets/img/categories/categories-img1.png" alt="تصویر">
-                            <h3>مجموعه های تشخیصی</h3>
-                            <a href="products-left-sidebar" class="link-btn"></a>
-                        </div>
-                    </div>
+                    
+
+                   ';
+$submitby="medico";
+$Getproducttype = $fee->Getproducttype($submitby);
+foreach($Getproducttype as $GetproducttypeProp){
+                   echo'
 
                     <div class="col-lg-2 col-sm-4 col-md-4">
                         <div class="single-categories-box">
-                            <img src="assets/img/categories/categories-img2.png" alt="تصویر">
-                            <h3>ضد عفونی کننده</h3>
+                            <img src="assets/img/categories/'.$GetproducttypeProp['pic'].'" alt="'.$GetproducttypeProp['name'].'">
+                            <h3>'.$GetproducttypeProp['name'].'</h3>
                             <a href="products-left-sidebar" class="link-btn"></a>
                         </div>
                     </div>
+';
+                                             }
+                   echo'
+                    
 
-                    <div class="col-lg-2 col-sm-4 col-md-4">
-                        <div class="single-categories-box">
-                            <img src="assets/img/categories/categories-img3.png" alt="تصویر">
-                            <h3>میکروسکوپ</h3>
-                            <a href="products-left-sidebar" class="link-btn"></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-sm-4 col-md-4">
-                        <div class="single-categories-box">
-                            <img src="assets/img/categories/categories-img4.png" alt="تصویر">
-                            <h3>داروخانه</h3>
-                            <a href="products-left-sidebar" class="link-btn"></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-sm-4 col-md-4">
-                        <div class="single-categories-box">
-                            <img src="assets/img/categories/categories-img5.png" alt="تصویر">
-                            <h3>تجهیزات جانبی</h3>
-                            <a href="products-left-sidebar" class="link-btn"></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-2 col-sm-4 col-md-4">
-                        <div class="single-categories-box">
-                            <img src="assets/img/categories/categories-img6.png" alt="تصویر">
-                            <h3>تجهیزات</h3>
-                            <a href="products-left-sidebar" class="link-btn"></a>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </section>

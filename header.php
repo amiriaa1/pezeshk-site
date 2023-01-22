@@ -37,7 +37,7 @@ echo'
 
         <title>'.$system_title.'</title>
 
-        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="icon" type="image/png" href="assets/img/logo.png">
     </head>
  
     <body>
