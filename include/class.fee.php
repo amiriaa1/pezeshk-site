@@ -151,9 +151,23 @@ function Deletecustomerapp($id)
  $query->execute($values); $result = $query->fetchAll(); return $result; }
 
 
-    function Getproducttype($submitby)
-    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_product_type` WHERE `show_on`=? AND `active`=1"); $values = array($submitby);
+    function Getproducttype($submitby,$limit)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `categories` WHERE `is_active`=1 LIMIT $limit,10"); $values = array($submitby,$limit);
         $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+    function Getproducttype2($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `categories` WHERE `id`=? "); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+    function Getproductlistid($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `products` WHERE `category_id`=? AND is_active=1"); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
 
 
     function GEtmissionsapi($promoter)

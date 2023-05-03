@@ -1,6 +1,6 @@
 <?php
 include('main.php');
-
+$fee = new ManageFees();
 
 if($uactive!=='1' && $isLogedIn){
 	
@@ -14,7 +14,7 @@ echo'
 
 
 <!doctype html>
-<html lang="zxx">
+<html lang="fa">
     
 <head>
         <!-- Required meta tags -->
@@ -48,8 +48,8 @@ echo'
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-md-7">
                         <ul class="top-header-contact-info">
-                            <li><i class="bx bx-phone-call"></i> <a href="tel:+1234567898">456-7898322</a></li>
-                            <li><i class="bx bx-map"></i> <a href="#" target="_blank">ایران - تهران</a></li>
+                            <li><i class="bx bx-phone-call"></i> <a href="tel:09224645525">02155436424   09224645525</a></li>
+                            <li><i class="bx bx-map"></i> <a href="#" >تهران نواب ، مرکز خرید و فروش تجهیزات دندانپزشکی کشور افرا واحد 601</a></li>
                         </ul>
                     </div>
 
@@ -120,7 +120,19 @@ echo'
                                                         <h6 class="submenu-title">دسته اول</h6>
 
                                                         <ul class="megamenu-submenu">
-                                                            <li><a href="#">لوازم بهداشتی</a></li>
+     
+                                                        ';
+
+$submitby="1";
+$limit='1';
+$Getproducttype = $fee->Getproducttype($submitby,$limit);
+foreach($Getproducttype as $GetproducttypeProp){
+echo'
+            <li><a target="_blank" href="cateft?id='.$GetproducttypeProp['id'].'">'.$GetproducttypeProp['name'].'</a></li>
+
+                                                            ';
+}
+echo'
 
                                                           
                                                         </ul>
@@ -130,7 +142,19 @@ echo'
                                                         <h6 class="submenu-title">دسته دوم</h6>
 
                                                         <ul class="megamenu-submenu">
-                                                            <li><a href="products-left-sidebar">ماسک سه لایه</a></li>
+                                                        
+                                                        
+                                                                                                                ';
+
+$submitby="1";
+$limit='11';
+$Getproducttype = $fee->Getproducttype($submitby,$limit);
+foreach($Getproducttype as $GetproducttypeProp){
+	echo'
+                                                            <li><a target="_blank" href="cateft?id='.$GetproducttypeProp['id'].'">'.$GetproducttypeProp['name'].'</a></li>
+                                                            ';
+}
+echo'
 
                                                             
                                                         </ul>
@@ -141,7 +165,18 @@ echo'
                                                         <h6 class="submenu-title">دسته سوم</h6>
 
                                                         <ul class="megamenu-submenu">
-                                                            <li><a href="single-products-1">واکسن سینوفارم</a></li>
+                                                                                                                                                                     ';
+
+$submitby="1";
+$limit='22';
+$Getproducttype = $fee->Getproducttype($submitby,$limit);
+foreach($Getproducttype as $GetproducttypeProp){
+	echo'
+                                                            <li><a target="_blank" href="cateft?id='.$GetproducttypeProp['id'].'">'.$GetproducttypeProp['name'].'</a></li>
+                                                            ';
+}
+echo'
+
 
                                                        
                                                         </ul>

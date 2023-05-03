@@ -152,23 +152,6 @@ echo'
                 <div class="row">
                     
 
-                   ';
-$submitby="medico";
-$Getproducttype = $fee->Getproducttype($submitby);
-foreach($Getproducttype as $GetproducttypeProp){
-                   echo'
-
-                    <div class="col-lg-2 col-sm-4 col-md-4">
-                        <div class="single-categories-box">
-                            <img src="assets/img/categories/'.$GetproducttypeProp['pic'].'" alt="'.$GetproducttypeProp['name'].'">
-                            <h3>'.$GetproducttypeProp['name'].'</h3>
-                            <a href="products-left-sidebar" class="link-btn"></a>
-                        </div>
-                    </div>
-';
-                                             }
-                   echo'
-                    
 
                     
                 </div>

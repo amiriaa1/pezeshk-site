@@ -1,6 +1,6 @@
 <?php
-$dbhost = 'localhost';
-$dbname = 'pezeshk';
+$dbhost = '37.32.9.198';
+$dbname = 'atlas';
 $dbuname = 'pezeshk';
 $dbpass = 'pezeshk';
 $table_prefix = 'nim_';

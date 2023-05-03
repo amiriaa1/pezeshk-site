@@ -61,10 +61,10 @@ echo '
                         <div class="single-footer-widget">
                             <a href="#" class="logo d-inline-block"><img src="assets/img/logo.png" alt="تصویر"></a>
                             <ul class="footer-contact-info">
-                                <li><span>خط تلفن: </span> <a href="#">45564645</a></li>
-                                <li><span>تلفن: </span> <a href="tel:+1234567898">456-7898322</a></li>
-                                <li><span>ایمیل: </span> <a href="mailto:hello@medico.ir">hello@medico.ir</a></li>
-                                <li><span>آدرس: </span> <a href="#" target="_blank">ایران - تهران</a></li>
+                                <li><span>خط تلفن: </span> <a href="#">09125245542 09224645525</a></li>
+                                <li><span>تلفن: </span> <a href="tel:02155436424">021-55436424</a></li>
+                                <li><span>ایمیل: </span> <a href="mailto:info@dentcenter.ir">info@dentcenter.ir</a></li>
+                                <li><span>آدرس: </span> <a href="#" target="_blank">تهران نواب ، مرکز خرید و فروش تجهیزات دندانپزشکی کشور افرا واحد 601</a></li>
                             </ul>
                             <ul class="social">
                                 <li><a href="#" target="_blank"><i class="bx bxl-facebook-square"></i></a></li>
