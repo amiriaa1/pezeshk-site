@@ -1,183 +1,176 @@
-
 <?php
 include('main.php');
 include('header.php');
 
 $fee = new ManageFees();
-
 $id=$_GET["id"];
 
-$Getproducttype = $fee->Getproductlistid($id);
-
-$Getproducttype2 = $fee->Getproducttype2($id);
+$Getproducttype = $fee->Getproductfromid($id);
+$imp=explode(",",$Getproducttype["0"]['image']);
 echo'
-
-
-        <!-- Start Page Title Area -->
+   <!-- Start Page Title Area -->
         <section class="page-title-area">
             <div class="container">
                 <div class="page-title-content">
-                    <h1>'.$Getproducttype2["0"]["name"].'</h1>
+                    <h1>جزئیات محصولات</h1>
                     <ul>
                         <li><a href="#">خانه</a></li>
-                        <li>'.$Getproducttype2["0"]["name"].'</li>
+                        <li>جزئیات محصولات</li>
                     </ul>
                 </div>
             </div>
         </section>
         <!-- End Page Title Area -->
 
-        <!-- Start Products Area -->
-        <section class="products-area ptb-70">
+        <!-- Start Product Details Area -->
+        <section class="product-details-area pt-70 pb-40">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-12">
-                        <div class="woocommerce-widget-area">
-                            <div class="woocommerce-widget price-list-widget">
-                                <h3 class="woocommerce-widget-title">فیلتر با قیمت</h3>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="products-details-image">
+                            <ul class="products-details-image-slides owl-theme owl-carousel" data-slider-id="1">
+                                <li><img src="https://panel.dentcenter.ir/public/images/product/'.$imp["0"].'" alt="تصویر"></li>
+                        
+                            </ul>
 
-                                <div class="collection-filter-by-price">
-                                    <input class="js-range-of-price" type="text" data-min="0" data-max="1055" name="filter_by_price" data-step="10">
+                            <!-- Carousel Thumbs -->
+                            <div class="owl-thumbs products-details-image-slides-owl-thumbs" data-slider-id="1">
+                                <div class="owl-thumb-item">
+                                ';
+if($imp["1"]==""){}
+else{
+    echo'<img src="https://panel.dentcenter.ir/public/images/product/'.$imp["1"].'" alt="تصویر">';
+}
+echo'
+                                    
+                                </div>
+
+                                <div class="owl-thumb-item">
+                                                               ';
+if($imp["2"]==""){}
+else{
+    echo'<img src="https://panel.dentcenter.ir/public/images/product/'.$imp["2"].'" alt="تصویر">';
+}
+echo'
+                                </div>
+
+                                <div class="owl-thumb-item">
+                                                                   ';
+if($imp["3"]==""){}
+else{
+    echo'<img src="https://panel.dentcenter.ir/public/images/product/'.$imp["3"].'" alt="تصویر">';
+}
+echo'
+                                </div>
+
+                                <div class="owl-thumb-item">
+                                                                   ';
+if($imp["4"]==""){}
+else{
+    echo'<img src="https://panel.dentcenter.ir/public/images/product/'.$imp["4"].'" alt="تصویر">';
+}
+echo'
                                 </div>
                             </div>
-
-                            <div class="woocommerce-widget color-list-widget">
-                                <h3 class="woocommerce-widget-title">رنگ</h3>
-
-                                <ul class="color-list-row">
-                                    <li class="active"><a href="#" title="سیاه" class="color-black"></a></li>
-                                 
-                                </ul>
-                            </div>
-
-                            <div class="woocommerce-widget brands-list-widget">
-                                <h3 class="woocommerce-widget-title">مارک های تجاری</h3>
-
-                                <ul class="brands-list-row">
-                                    <li><a href="#">'.$Getproducttype2["0"]["name"].'</a></li>
-                                    
-                                </ul>
-                            </div>
-
-                         
-
-                          
                         </div>
                     </div>
 
-                    <div class="col-lg-9 col-md-12">
-                        <div class="drodo-grid-sorting row align-items-center">
-                            <div class="col-lg-6 col-md-6 result-count">
-                                <p>ما <span class="count">99</span> محصول برای شما پیدا کردیم</p>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="products-details-desc">
+                            <h3>'.$Getproducttype["0"]["name"].'</h3>
 
-                                <span class="sub-title d-lg-none"><a href="#" data-bs-toggle="modal" data-bs-target="#productsFilterModal"><i class="bx bx-filter-alt"></i> فیلتر</a></span>
-                            </div>
+                            <div class="price">
+                              ';
 
-                            <div class="col-lg-6 col-md-6 ordering">
-                                <div class="select-box">
-                                    <label>مرتب سازی بر اساس:</label>
-                                    <select>
-                                        <option>پیش فرض</option>
-                                        <option>محبوبیت</option>
-                                        <option>آخرین</option>
-                                        <option>قیمت: کم به زیاد</option>
-                                        <option>قیمت: کم به بالا</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            
-
-
-';
-
-foreach($Getproducttype as $GetproducttypeProp){
-$imp=explode(",",$GetproducttypeProp['image']);
-echo'
-
-
- <div class="col-lg-4 col-md-4 col-sm-6">
-                                <div class="single-products-box">
-                                    <div class="image">
-                                        <a href="product?id='.$GetproducttypeProp['id'].'" class="d-block"><img src="https://panel.dentcenter.ir/public/images/product/'.$imp["0"].'" alt="تصویر"></a>
-
-                                        <div class="sale">فروش</div>
-                                        <div class="new">جدید</div>
-                                        <div class="buttons-list">
-                                            <ul>
-                                            
-                                              
-                                                <li>
-                                                    <div class="quick-view-btn">
-                                                        <a href="product?id='.$GetproducttypeProp['id'].'" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                            <i class="bx bx-search-alt"></i>
-                                                            <span class="tooltip-label">مشاهده سریع</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-
-                                    <div class="content">
-                                        <h3><a href="product?id='.$GetproducttypeProp['id'].'">'.$GetproducttypeProp['name'].'</a></h3>
-                                        <div class="price">
-                                        ';
-
-if($GetproducttypeProp['price']=="0")
-{echo' <span class="new-price">تماس بگیرید </span>';}
+if($Getproducttype["0"]['price']=="0")
+{echo' <span class="new-price">قیمت : تماس بگیرید </span>';}
 else
-{ echo' <span class="new-price">'.$GetproducttypeProp['price'].'</span> تومان';}
-                                             echo'
+{ echo' <span class="new-price">'.$Getproducttype["0"]['price'].'</span> تومان';}
+echo'
                                            
-                                        </div>
-                                    </div>
-                                </div>
+                               
+                               
                             </div>
-';
+
+                     
+
+                            <ul class="products-info">
+                            ';
+$Getproducttype222 = $fee->Getproductmojodi($id);
+if($Getproducttype222["0"]["qty"]==NULL OR $Getproducttype222["0"]["qty"]=="0"){
+
+    echo'  <li><span>موجودی: </span> نا موجود</li>';
+}
+else{
+    echo'  <li><span>موجودی: </span> <a href="#">موجود است ('.$Getproducttype222["0"]["qty"].' مورد)</a></li>';
 
 }
-
 echo'
-                           
+                              
 
+                            </ul>
 
+                    
+                            <div class="products-add-to-cart">
+                                <div class="input-counter">
+                                    <span class="minus-btn"><i class="bx bx-minus"></i></span>
+                                    <input type="text" value="1" min="1">
+                                    <span class="plus-btn"><i class="bx bx-plus"></i></span>
+                                </div>
 
+                            </div>
 
-                           
-                            
+                            <div class="wishlist-btn">
+                                <a href="#"><i class="bx bx-heart"></i> افزودن به لیست علاقه مندی ها</a>
+                            </div>
 
-                          
+                            <div class="buy-checkbox-btn">
+                             
 
-
-                            <div class="col-lg-12 col-md-12">
-                                <div class="pagination-area text-center">
-                                    <a href="#" class="prev page-numbers"><i class="bx bx-chevrons-right"></i></a>
-                                    <span class="page-numbers current" aria-current="page">1</span>
-                                    <a href="#" class="page-numbers">2</a>
-                                    <a href="#" class="page-numbers">3</a>
-                                    <a href="#" class="page-numbers">4</a>
-                                    <a href="#" class="prev page-numbers"><i class="bx bx-chevrons-left"></i></a>
+                                <div class="item">
+                                    <a href="#" class="default-btn">خرید کنید</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Products Area -->
 
-     
-';
-include('footer.php');
-
-echo'
-
-
-
+                    <div class="col-lg-12 col-md-12">
+                        <div class="products-details-tabs">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-controls="description">توضیحات</a></li>
+                                <li class="nav-item"><a class="nav-link" id="shipping-tab" data-bs-toggle="tab" href="#shipping" role="tab" aria-controls="shipping">حمل نقل</a></li>
+                            </ul>
         
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="description" role="tabpanel">
+                                   '.$Getproducttype["0"]["product_details"].'
+                                </div>
+        
+                                <div class="tab-pane fade" id="shipping" role="tabpanel">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td>حمل نقل</td>
+                                                    <td>پشنهاد ویژه ارسال رایگان به  تهران</td>
+                                                </tr>
+    
+                                                <tr>
+                                                    <td>تحویل</td>
+                                                    <td>
+                                         یک روز کاری
+                                                     
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+        
+            
+
+
+        <!-- Start QuickView Modal Area -->
         <div class="modal fade productsQuickView" id="productsQuickView" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -234,11 +227,10 @@ echo'
                                     <h4>اندازه:</h4>
 
                                     <ul>
-                                       <li><a href="#">کوچک</a></li>
+                                        <li><a href="#">کوچک</a></li>
                                         <li class="active"><a href="#">متوسط</a></li>
                                         <li><a href="#">بزرگ</a></li>
                                         <li><a href="#">خیلی بزرگ</a></li>
-
                                     </ul>
                                 </div>
 
@@ -473,7 +465,7 @@ echo'
                                     <a href="#" class="default-btn"><i class="flaticon-trolley"></i> اکنون خرید کنید</a>
                                 </div>
 
-
+                                
                             </div>
 
                             <div class="woocommerce-widget best-seller-widget">
@@ -541,8 +533,7 @@ echo'
         <!-- End Products Filter Modal Area -->
 
         <div class="go-top"><i class="bx bx-up-arrow-alt"></i></div>
-';
-echo'
+
         <!-- Links of JS files -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
@@ -561,5 +552,13 @@ echo'
         <script src="assets/js/ajaxchimp.min.js"></script>
         <script src="assets/js/main.js"></script>
 
+
 ';
+include('footer.php');
+
+
+
 ?>
+
+
+

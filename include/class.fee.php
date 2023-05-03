@@ -167,6 +167,15 @@ function Deletecustomerapp($id)
         $query->execute($values); $result = $query->fetchAll(); return $result; }
 
 
+    function Getproductfromid($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `products` WHERE `id`=? "); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+    function Getproductmojodi($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT sum(qty) as qty FROM `product_warehouse` WHERE `product_id`=? "); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
 
 
 
