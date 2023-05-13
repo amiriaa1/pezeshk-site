@@ -177,6 +177,132 @@ function Deletecustomerapp($id)
 
 
 
+    function Addshoplistbasket($productid,$uusername,$amount,$product,$product2,$unid)
+    { global $table_prefix;
+        $query = $this->link->prepare("INSERT INTO `nim_basket` (`product_id`,`uusername`,`price`,`data1`,`data2`,`uinid`) VALUES (?,?,?,?,?,?) ");
+
+        $values = array($productid,$uusername,$amount,$product,$product2,$unid);
+        $query->execute($values); $counts = $query->rowCount();
+        return $counts; }
+
+
+
+
+    function Getbasketforusersum($uusername)
+    { global $table_prefix; $query = $this->link->prepare("SELECT SUM(data2) AS total  FROM `nim_basket` WHERE `uusername`=?"); $values = array($uusername);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+    function Getcustomersatlas($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT *  FROM `customers` WHERE `id`=?"); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+    function Getsaleid($unid)
+    { global $table_prefix; $query = $this->link->prepare("SELECT *  FROM `sales` WHERE `reference_no`=?"); $values = array($unid);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+
+
+
+    function Getfactorforinvocepage($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM sales inner join product_sales ps on sales.id = ps.sale_id where reference_no=?"); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+    function Getfactorforinvocepagetotal($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT sum(net_unit_price) as total FROM sales inner join product_sales ps on sales.id = ps.sale_id where reference_no=?"); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+
+
+    function Getproductlist($query) { global $table_prefix;
+        $query = $this->link->query("SELECT * FROM `products` $query");
+        $counts = $query->rowCount(); $result = $query->fetchAll();
+        return $result; }
+
+
+
+
+    function deletebasketitem($delet)
+    { global $table_prefix; $query = $this->link->prepare("DELETE FROM `nim_basket` WHERE `id`=?");
+        $values = array($delet); $query->execute($values); $counts = $query->rowCount(); if($counts==1) return 1; else return $counts; }
+
+    function Getbasketforuser($uusername)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_basket` WHERE `uusername`=?"); $values = array($uusername);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+
+    function Addshoplist($productid,$uusername,$amount,$product,$product2,$acomment,$state,$unid)
+    { global $table_prefix;
+        $query = $this->link->prepare("INSERT INTO `nim_shop_list` (`productid`,`user`,`amount`,`data1`,`data2`,`acomment`,`state`,`unid`) VALUES (?,?,?,?,?,?,?,?) ");
+
+        $values = array($productid,$uusername,$amount,$product,$product2,$acomment,$state,$unid);
+        $query->execute($values); $counts = $query->rowCount();
+        return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    function Addpaymenttableuser($payment_reference,$user_id,$sale_id,$cash_register_id,$account_id,$amount,$change,$paying_method,$payment_note)
+    { global $table_prefix;
+        $query = $this->link->prepare("INSERT INTO `payments` (`payment_reference`,`user_id`,`sale_id`,`cash_register_id`,`account_id`,`amount`,`change`,`paying_method`,`payment_note`) VALUES (?,?,?,?,?,?,?,?,?) ");
+
+        $values = array($payment_reference,$user_id,$sale_id,$cash_register_id,$account_id,$amount,$change,$paying_method,$payment_note);
+        $query->execute($values); $counts = $query->rowCount();
+        return $counts; }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+    function AddUserPaymentlog($Authority,$uusername,$status,$amount)
+    { global $table_prefix; $now = gmdate("Y-m-d H:i:s");
+        $query = $this->link->prepare("INSERT INTO `nim_payment_log` (`Authority`,`uid`,`status`,`amount`) VALUES (?,?,?,?) ");
+        $values = array($Authority,$uusername,$status,$amount); $query->execute($values); $counts = $query->rowCount(); return $counts;}
+
+
+    function updateUserPaymentlog($comment,$RefID,$Authority)
+    { global $table_prefix; $now = gmdate("Y-m-d H:i:s"); $query = $this->link->prepare("UPDATE `nim_payment_log` SET comment=? , RefID=? WHERE Authority=? ");
+        $values = array($comment,$RefID,$Authority); $query->execute($values); $counts = $query->rowCount(); return $counts;}
+
+
+
+    function getcountshoplistpart($uusername,$unid)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_shop_list` WHERE `data1`=? AND `unid`=?"); $values = array($uusername,$unid);
+        $query->execute($values);$counts = $query->rowCount(); $result = $query->fetchAll(); return $counts; }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    function Updateshoplistafterpay($unid)
+    { global $table_prefix; $query = $this->link->prepare("UPDATE `nim_shop_list` SET `state`=3 ,`pay`=1 WHERE `unid`=?");
+        $values = array($unid); $query->execute($values); $counts = $query->rowCount(); return $counts; }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    function updatesalestable($amount,$unid)
+    { global $table_prefix; $query = $this->link->prepare("UPDATE `sales` SET `payment_status`=4 ,`paid_amount`=? WHERE `reference_no`=?");
+        $values = array($amount,$unid); $query->execute($values); $counts = $query->rowCount(); return $counts; }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+    function Getshoplist1($uusername,$unid)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_shop_list` WHERE `data1`=? AND `unid`=?"); $values = array($uusername,$unid);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
     function GEtmissionsapi($promoter)

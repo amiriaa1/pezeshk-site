@@ -204,7 +204,7 @@ echo'
 
                                 <div class="option-item">
                                     <div class="cart-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingCartModal"><i class="bx bx-shopping-bag"></i><span>3</span></a>
+                                        <a href="basket"><i class="bx bx-shopping-bag"></i><span>3</span></a>
                                     </div>
                                 </div>
 

@@ -1,11 +1,74 @@
 <?php
 
+function randomPassword() {
+    $alphabet = 'abcdefghijklmnopqrstuvwxyz1234567890';
+    $pass = array(); //remember to declare $pass as an array
+    $alphaLength = strlen($alphabet) - 1; //put the length -1 in cache
+    for ($i = 0; $i < 20; $i++) {
+        $n = rand(0, $alphaLength);
+        $pass[] = $alphabet[$n];
+    }
+    return implode($pass); //turn the array into a string
+}
 
 include_once('main.php');
 switch($_REQUEST['op'])
 {
-	
-	
+
+
+
+    case "shop_list":
+
+        $productid= $_REQUEST['x'];
+        $tedad= $_REQUEST['y'];
+        $amount= $_REQUEST['z'];
+        $fee = new ManageFees();
+        $acomment="submit by user";
+        $state='1';
+        $unid=randomPassword();
+
+        $product2=$tedad*$amount;
+        $product=$tedad;
+
+
+        if(!$isLogedIn){
+            if($_SESSION["bfslogin"]==""){
+
+                session_start();
+                $bfslognrand=rand(1000,900000);
+                $_SESSION["bfslogin"] = $bfslognrand;
+
+            }else{
+                $bfslognrand=$_SESSION["bfslogin"];
+            }
+            $counttttt = $fee->Addshoplistbasket($productid,$bfslognrand,$amount,$product,$product2,$unid);
+
+        }else{
+            $counttttt = $fee->Addshoplistbasket($productid,$uusername,$amount,$product,$product2,$unid);
+
+        }
+        if($counttttt==1){
+
+            echo json_encode(array(
+                "statusCode"=>200,
+                "state"=>"1",
+                "url"=>'basket',
+                "unid"=>$unid
+
+
+            ),JSON_UNESCAPED_UNICODE);
+
+        }
+        else{
+            echo'problem';
+
+        }
+
+
+        break;
+
+
+
 		case "vfr":
 	$addres= $_REQUEST['addres'];
 	$cutomerstype= $_REQUEST['cutomerstype'];

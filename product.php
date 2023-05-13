@@ -7,7 +7,50 @@ $id=$_GET["id"];
 
 $Getproducttype = $fee->Getproductfromid($id);
 $imp=explode(",",$Getproducttype["0"]['image']);
+
 echo'
+
+	
+						<script type="text/javascript">
+							function Myshoplist(item)
+							{
+								var z = $(price).attr("value");
+								var x = $(productid).attr("value");
+								var y =	document.getElementById("tedad").value;
+							
+							
+								
+							$.ajax({
+							
+								    url: "aj.php",
+								    type: "POST",
+								    data: {op:"shop_list",x:x,y:y,z:z},
+									dataType: "json",
+								    success: function(data){
+										
+									if(data.statusCode==200){
+										
+									
+										
+										window.location.href = data.url;
+										
+									}
+										
+										
+									}
+							      });
+							
+							
+							
+								
+							
+							
+							
+							
+							}
+						</script>
+
+
    <!-- Start Page Title Area -->
         <section class="page-title-area">
             <div class="container">
@@ -100,10 +143,11 @@ $Getproducttype222 = $fee->Getproductmojodi($id);
 if($Getproducttype222["0"]["qty"]==NULL OR $Getproducttype222["0"]["qty"]=="0"){
 
     echo'  <li><span>موجودی: </span> نا موجود</li>';
+    $buy='0';
 }
 else{
     echo'  <li><span>موجودی: </span> <a href="#">موجود است ('.$Getproducttype222["0"]["qty"].' مورد)</a></li>';
-
+    $buy='1';
 }
 echo'
                               
@@ -114,7 +158,7 @@ echo'
                             <div class="products-add-to-cart">
                                 <div class="input-counter">
                                     <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                    <input type="text" value="1" min="1">
+                                    <input name="tedad" id="tedad" type="text" value="1" min="1">
                                     <span class="plus-btn"><i class="bx bx-plus"></i></span>
                                 </div>
 
@@ -128,12 +172,23 @@ echo'
                              
 
                                 <div class="item">
-                                    <a href="#" class="default-btn">خرید کنید</a>
+                                ';
+if($buy=="1"){
+
+    echo'<button  class="default-btn" onclick="Myshoplist(this)">افزودن به سبد خرید</button>';
+}else{
+    echo'<button  class="default-btn" ">نا موجود</button>';
+
+}
+echo'
+                                
+                                  
                                 </div>
                             </div>
                         </div>
                     </div>
-
+<input type="hidden" name="price" id="price" class="form-control" value="'.$Getproducttype["0"]['price'].'">
+<input type="hidden" name="productid" id="productid" class="form-control" value="'.$_GET['id'].'">
                     <div class="col-lg-12 col-md-12">
                         <div class="products-details-tabs">
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
