@@ -4,7 +4,7 @@
  * put your gatewat merchant key here.
  * use "zibal" for test
  */
-define("ZIBAL_MERCHANT_KEY","zibal");
+define("ZIBAL_MERCHANT_KEY","64607f0f18f9340591ec355f");
 
 
 define("ZIBAL_CALLBACK_URL","http://yourapiurl.com/callback.php");

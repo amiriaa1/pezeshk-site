@@ -7,6 +7,15 @@ if($uactive!=='1' && $isLogedIn){
 	header("Location: verification");
 }
 
+$fee = new ManageFees();
+if(!$isLogedIn){
+	$uusername=$_SESSION["bfslogin"];
+	$basketcountuser = $fee->Getbasketforusercount($uusername);
+
+}
+else{
+	$basketcountuser = $fee->Getbasketforusercount($uusername);
+}
 
 
 echo' 
@@ -196,23 +205,15 @@ echo'
                             </ul>
 
                             <div class="others-option">
-                                <div class="option-item">
-                                    <div class="wishlist-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#shoppingWishlistModal"><i class="bx bx-heart"></i></a>
-                                    </div>
-                                </div>
+                             
 
                                 <div class="option-item">
                                     <div class="cart-btn">
-                                        <a href="basket"><i class="bx bx-shopping-bag"></i><span>3</span></a>
+                                        <a href="basket"><i class="bx bx-shopping-bag"></i><span>'.$basketcountuser.'</span></a>
                                     </div>
                                 </div>
 
-                                <div class="option-item">
-                                    <div class="search-btn-box">
-                                        <i class="search-btn bx bx-search-alt"></i>
-                                    </div>
-                                </div>
+                              
                             </div>
                         </div>
                     </nav>

@@ -41,7 +41,8 @@ $_SESSION['course_amount']=str_replace
         "merchant"=> ZIBAL_MERCHANT_KEY,//required
         "callbackUrl"=> $callBackUrl,//required
         "amount"=> $amount,//required
-        "orderId"=> $uusername2
+        "orderId"=> $uusername2,
+        "mobile"=> $_GET['phone_number']
     );
 
     $response = postToZibal('request', $parameters);

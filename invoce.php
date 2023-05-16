@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
 
     $productid="basket";
     $amount=$_POST['priceget'];
+    $phone_number=$_POST['phone_number'];
     $uid=$_POST['uid'];
     $product=$_GET['id'];
     $product2="basket2";
@@ -29,7 +30,7 @@ if(isset($_POST['submit'])){
     $counttttt = $fee->Addshoplist($productid,$uusername,$amount,$product,$product2,$acomment,$state,$unid);
 
     if ($counttttt==1){
-        header("Location: target?GS=$unid&id=$product");
+        header("Location: target?GS=$unid&id=$product&phone_number=$phone_number");
         exit;
     }
 
@@ -85,7 +86,7 @@ echo'
         <!-- Start Cart Area -->
 		<section class="cart-area ptb-70">
             <div class="container">
-             <h4>مشتری گرامی :  '.$Getcustomersatlas["0"]["name"].'</h4>
+             <h4>مشتری گرامی :  '.$Getcustomersatlas["0"]["name"].'---'.$Getcustomersatlas["0"]["phone_number"].'</h4>
                 <form method="post" action="">
                     <div class="cart-table table-responsive">
                         <table class="table table-bordered">
@@ -204,13 +205,15 @@ if($getinvoceiio["0"]["paid_amount"]==$getinvoceiio["0"]["grand_total"]){
 
 }else{
     echo'
-<button name="submit" id="submit"  class="default-btn"><i class="flaticon-trolley"></i>  اقدام به پرداخت <br>(درگاه خاموش است امکان پرداخت نیست) </button>
+<button name="submit" id="submit"  class="default-btn"><i class="flaticon-trolley"></i>  اقدام به پرداخت</button>
 ';
 
 }
+
 echo'
  <input type="hidden" name="priceget" id="priceget" class="form-control" value="'.$grand.'">
   <input type="hidden" name="uid" id="uid" class="form-control" value="'.$id.'">
+    <input type="hidden" name="phone_number" id="phone_number" class="form-control" value="'.$Getcustomersatlas["0"]["phone_number"].'">
                                    </form>
              
                     </div>

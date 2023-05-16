@@ -167,6 +167,20 @@ function Deletecustomerapp($id)
         $query->execute($values); $result = $query->fetchAll(); return $result; }
 
 
+
+    function Getproductlistbestsell($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `products` WHERE  is_active=1  ORDER  by id DESC limit 15"); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+    function Getproductlistbestsell2($id)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `products` WHERE  is_active=1 AND featured=1  ORDER  by id DESC limit 15"); $values = array($id);
+        $query->execute($values); $result = $query->fetchAll(); return $result; }
+
+
+
+
     function Getproductfromid($id)
     { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `products` WHERE `id`=? "); $values = array($id);
         $query->execute($values); $result = $query->fetchAll(); return $result; }
@@ -204,6 +218,10 @@ function Deletecustomerapp($id)
         $query->execute($values); $result = $query->fetchAll(); return $result; }
 
 
+
+    function Getbasketforusercount($uusername)
+    { global $table_prefix; $query = $this->link->prepare("SELECT * FROM `nim_basket` WHERE `uusername`=?"); $values = array($uusername);
+        $query->execute($values); $counts = $query->rowCount(); return $counts; }
 
 
 
